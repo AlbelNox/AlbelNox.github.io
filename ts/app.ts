@@ -4,24 +4,37 @@ class App {
     constructor() {
         this.contentElement = document.getElementById('content')!;
         this.initEvents();
+        this.loadContent('content/aboutMe.html'); // Startseite
     }
 
     private initEvents(): void {
         document.getElementById('home-link')?.addEventListener('click', () => {
-            this.updateContent('Willkommen!', 'Hier findest du meinen Lebenslauf und meine Projekte.');
+            this.loadContent('content/aboutMe.html');
         });
 
         document.getElementById('cv-link')?.addEventListener('click', () => {
-            this.updateContent('Lebenslauf', 'Hier steht dein Lebenslauf.');
+            this.loadContent('content/resume.html');
         });
 
         document.getElementById('projects-link')?.addEventListener('click', () => {
-            this.updateContent('Projekte', 'Hier findest du deine Projekte.');
+            this.loadContent('content/projekte.html');
         });
     }
 
-    private updateContent(title: string, text: string): void {
-        this.contentElement.innerHTML = `<h2>${title}</h2><p>${text}</p>`;
+    private loadContent(file: string): void {
+        fetch(file)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Fehler beim Laden: ${response.statusText}`);
+                }
+                return response.text();
+            })
+            .then(html => {
+                this.contentElement.innerHTML = html;
+            })
+            .catch(error => {
+                this.contentElement.innerHTML = `<p style="color:red;">${error.message}</p>`;
+            });
     }
 }
 
