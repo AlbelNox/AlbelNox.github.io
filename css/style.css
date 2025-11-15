@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    
+    background:
+        linear-gradient(to top left, #ff0000, transparent),
+        linear-gradient(to top right, #ffff00, transparent),
+        linear-gradient(to bottom left, #008000, transparent),
+        linear-gradient(to bottom right, #0000ff, transparent);
+    background-blend-mode: screen;
+    color: white;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+}
+
+aside {
+    width: 200px;
+    margin-right: 20px;
+}
+
+#content {
+    flex: 1;
+}
+
+.h1 {
+    font-weight: bolder;
+}
+
+.side-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-header {
+    display: flex;
+    align-items: center;      /* vertikal ausrichten */
+    gap: 20px;                /* Abstand zwischen Bild und Icons */
+    margin-bottom: 20px;
+}
+
+.about-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/*icons*/
+.home-icon {
+    display: inline-block;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 30px;
+    height: 30px;
+}
+
+.home-icon:hover {
+    transform: scale(1.2);
+}
+
+.home-icon {
+    cursor: pointer;
+}
+
+.contact-icon {
+    width: 100px;
+    height: auto;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.contact-icon:hover {
+    transform: scale(1.2);
+}
+.mailTo-icon {
+    transform: scale(0.4);
+}
+
+/*btn */
+.default-btn {
+    width: auto;
+    background-color: #00000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.default-btn:hover {
+    background-color: #0000001A;
+    transform: scale(1.15);
+}
+
+.nav-btn {
+    height: 40px;
+}
+
+.sideNav-btn {
+ color: black;
+}
+/*img*/
+.myImg {
+    width: 30vh;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
