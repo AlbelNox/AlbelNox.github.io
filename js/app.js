@@ -31,6 +31,14 @@ class App {
             this.setActive('projects-link');
             this.loadContent('content/projekte.html', 'projects');
         });
+
+        // Theme toggle button
+        document.getElementById('theme-toggle')?.addEventListener('click', () => {
+            this.toggleTheme();
+        });
+
+        // Initialize theme from localStorage
+        this.initTheme();
     }
 
     setActive(buttonId) {
@@ -159,6 +167,30 @@ class App {
 
     clearSidebar() {
         this.sidebarElement.innerHTML = '';
+    }
+
+    // Theme Management
+    initTheme() {
+        const theme = localStorage.getItem('theme') || 'light';
+        this.setTheme(theme);
+    }
+
+    toggleTheme() {
+        const currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        this.setTheme(newTheme);
+    }
+
+    setTheme(theme) {
+        const isDark = theme === 'dark';
+        document.body.classList.toggle('dark-mode', isDark);
+        localStorage.setItem('theme', theme);
+        
+        // Update theme icon
+        const themeIcon = document.getElementById('theme-icon');
+        if (themeIcon) {
+            themeIcon.textContent = isDark ? '☀️' : '🌙';
+        }
     }
 }
 
