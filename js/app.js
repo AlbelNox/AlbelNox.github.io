@@ -131,7 +131,7 @@ class App {
             this.contentElement.innerHTML = `
                 <h2>Zertifikat</h2>
                 <iframe src="${certFile}" style="width: 100%; height: 600px; border: none; border-radius: 8px;"></iframe>
-                <p><a href="${certFile}" download style="color: #667eea; text-decoration: none; font-weight: 600;">📥 PDF herunterladen</a></p>
+                ${this.provideDownloadAsButton(certFile, '📥 Datei herunterladen!')}
             `;
         } else {
             // Für Bilder
@@ -148,7 +148,7 @@ class App {
             this.contentElement.innerHTML = `
                 <h2>Arbeitszeugnis</h2>
                 <iframe src="${docFile}" style="width: 100%; height: 600px; border: none; border-radius: 8px;"></iframe>
-                <p><a href="${docFile}" download style="color: #667eea; text-decoration: none; font-weight: 600;">📥 PDF herunterladen</a></p>
+                ${this.provideDownloadAsButton(docFile, '📥 Datei herunterladen!')}
             `;
         } else {
             this.contentElement.innerHTML = `
@@ -157,6 +157,17 @@ class App {
             `;
         }
     }
+
+    provideDownloadAsButton(file, label) {
+    return `
+        <p>
+            <a href="${file}" download
+               style="color: #667eea; text-decoration: none; font-weight: 600;">
+               ${label}
+            </a>
+        </p>
+    `;
+}
 
     loadProjectsSidebar() {
         // Placeholder für zukünftige Projekte
