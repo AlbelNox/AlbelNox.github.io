@@ -208,14 +208,6 @@ body.dark-mode .sidebar-btn:hover {
     font-weight: 600;
 }
 
-main {
-    display: flex;
-    width: 100vw;
-    min-height: 80vh;
-    gap: 0;
-    padding: 0;
-}
-
 .sidebar {
     width: 180px;
     min-width: 140px;
